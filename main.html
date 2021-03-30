@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<style>
+    .main {
+        position: absolute;
+        background-image: url("images/bgi.gif");
+        background-size: cover;
+        width: 1200px;
+        height: 800px;
+        z-index: -1;
+    }
+
+    h1 {
+        position: absolute;
+        color: black;
+        font-size: 50px;
+        text-shadow: 1px 1px 0px white;
+    }
+
+    ul {
+        position: absolute;
+        top: 450px;
+        left: 800px;
+        padding-left: 0px;
+        font-size: 30px;
+        list-style: none;
+    }
+    ul li{
+        padding: 10px 10px;
+        text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+    }
+    li:hover a{
+        text-decoration: underline;
+        color: blueviolet;
+    }
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+    }
+    img{
+        position: absolute;
+        width: 50px;
+        height: 60px;
+        transform: rotate(270deg);
+    }
+    h3{
+        position: absolute;
+        top: 405px;
+        left: 650px;
+        z-index: 2;
+    }
+    
+</style>
+
+<body>
+
+    <div class="main" id="main"></div>
+
+        <div>
+            <h1 style="top: 50px; left: 50px;">"무엇을 알고 싶나요?"</h1>
+            <h3>우선은...
+            </h3>
+                <img id="balloon" src="images/balloon.png" alt="">
+            <ul>
+                <li><a href="self.html" id="menu1">난 누구지?</a></li>
+                <li><a href="hobby.html" id="menu2">내 취미는 뭐지?</a></li>
+                <li><a href="roadmap.html" id="menu3">내 직업은 뭐지?</a></li>
+            </ul>
+            <div class="cursor" id="cursor1"><img src="images/pick11.png" alt=""></div>
+            <div class="cursor" id="cursor2"><img src="images/pick11.png" alt=""></div>
+            <div class="cursor" id="cursor3"><img src="images/pick11.png" alt=""></div>
+        </div>
+
+    <script>
+        var bgif = document.getElementById("main");
+        (function () {
+            setTimeout(function () {
+                bgif.style.transitionDuration = "5s";
+                bgif.style.opacity = ".5";
+            }, 0);
+            
+            cursor1.style.display = "none";
+            cursor2.style.display = "none";
+            cursor3.style.display = "none";
+            
+        })();
+
+        menu1.addEventListener('mouseover', function(){
+            cursor1.style.display = "block";
+        })
+        menu1.addEventListener('mouseout', function () { //mouseleave
+            cursor1.style.display = "none";
+            });
+        menu2.addEventListener('mouseover', function(){
+            cursor2.style.display = "block";
+        })
+        menu2.addEventListener('mouseout', function () { //mouseleave
+            cursor2.style.display = "none";
+            });
+        menu3.addEventListener('mouseover', function(){
+            cursor3.style.display = "block";
+        })
+        menu3.addEventListener('mouseout', function () { //mouseleave
+            cursor3.style.display = "none";
+            });
+        
+        
+        
+    </script>
+
+</body>
+
+</html>

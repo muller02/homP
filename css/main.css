@@ -1,0 +1,210 @@
+@font-face { font-family: 'NeoDunggeunmo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+body{
+    font-family: 'NeoDunggeunmo';
+    position: relative;
+}
+input, h1{
+  font-family: 'NeoDunggeunmo';
+  text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+}
+.wrapper{
+    position: relative;
+    width: 1200px;
+    height: 800px;
+}
+  
+  .container {
+    position: absolute;
+    margin: 50px;
+    perspective: 1000;
+ 
+  }
+  
+  .card {
+    width: 443px;
+    height: 640px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 1s;
+  }
+  
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    backface-visibility: hidden;
+    border-radius: 20px;
+  }
+  
+  .back {
+ 
+    transform: rotateY(180deg);
+    background: black;
+    backface-visibility:hidden;
+  }
+  
+  .container:hover .card {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  .container:hover .front {
+  /*   z-index: 0; */
+  }
+
+
+#cursor {
+    z-index: 1;
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    top: 630px;
+    left: 400px;
+    animation: cursor 1s;
+    animation-iteration-count: 10;
+
+}
+@keyframes cursor{
+    0%,100%{
+        transform:rotate(0deg);
+        transform-origin:50% 50%}
+    10%
+    {transform:rotate(8deg)
+    }
+    20%,40%,60%{
+        transform:rotate(-10deg)
+    }
+    30%,50%,70%{
+        transform:rotate(10deg)
+    }
+    80%{
+        transform:rotate(-8deg)
+    }
+    90%{
+        transform:rotate(8deg)
+    }
+}
+
+#name {
+  text-shadow: none;
+  display: inline;
+  color: inherit;
+  animation: blink 1s steps(1) infinite;
+  -webkit-animation: blink 1s steps(1) infinite;
+}
+
+
+
+@keyframes blink {
+  50% {
+      color: transparent;
+  }
+}
+
+h2 {
+  position: absolute;
+  color: brown;
+  font-weight: bolder;
+  font-size: 30px;
+  transform: rotate(20deg);
+  top: 560px;
+  left: 760px;
+}
+
+.icon {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 680px;
+}
+
+.icon1 {
+  transform: scale(.9);
+  top: 684px;
+}
+
+#new {
+  text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  animation: typingAni 1s steps(16) infinite;
+}
+
+@keyframes typingAni {
+  from {
+      width: 0px
+  }
+
+  to {
+      width: 150px;
+      animation-delay: 2s;
+  }
+
+  ;
+}
+
+#cursor1{
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  top: 475px;
+  left: 980px;
+}
+#cursor2{
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  top: 520px;
+  left: 1050px;
+}
+#cursor3{
+  position: absolute;
+  width: 50px;
+  height: 60px;
+  top: 570px;
+  left: 1050px;
+}
+#balloon{
+  position: absolute;
+  top: 400px;
+  left: 600px;
+  transform: rotate(360deg);
+  width: 180px;
+  height: 100px;
+}
+
+#toMain{
+  position: absolute;
+  top: 630px;
+  left: 1050px;
+  width: 150px;
+  height: 100px;
+}
+#toMain:hover{
+  cursor: pointer;
+}
+
+#okok{
+  position: absolute;
+  top: 550px;
+  left: 950px;
+  width: 200px;
+  height: 100px;
+  z-index: 5;
+}
+#remind{
+  top: 565px;
+  left: 975px;
+  font-size: 20px;
+  width: 200px;
+  text-shadow: none;
+  z-index: 6;
+}

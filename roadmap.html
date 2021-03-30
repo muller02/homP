@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>roadmap</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .wrapper {
+            background-color: white;
+          
+        }
+
+        .bgi>img {
+            position: absolute;
+            width: 1200px;
+            height: 800px;
+            background-repeat: none;
+            background-size: contain;
+            opacity: .8;
+        }
+
+        .other {
+            position: absolute;
+        }
+
+        .c {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .c1 {
+            top: 100px;
+            left: 100px;
+            font-size: 35px;
+        }
+
+        .c2 {
+            top: 350px;
+            left: 200px;
+        }
+
+        .c2>a {
+            color: red;
+            font-size: 40px;
+        }
+
+        .balloon {
+            position: absolute;
+            display: none;
+            opacity: .8;
+            top: 140px;
+            left: 425px;
+            width: 400px;
+            height: 150px;
+            transition-duration: .5s;
+        }
+
+        .c3 {
+            top: 160px;
+            left: 480px;
+        }
+
+        .c4 {
+            top: 600px;
+            left: 200px;
+            font-size: 40px;
+        }
+
+        .c5 {
+            position: absolute;
+            text-align: center;
+            top: 500px;
+            left: 500px;
+            width: 200px;
+            height: 100px;
+            font-size: 60px;
+            opacity: 1;
+            text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <div class="bgi">
+            <img src="images/giphy.gif" alt="">
+        </div>
+
+    </div class="other">
+    <h1 class="c c1">" 20nn년 현재... "</h1>
+    <h1 class="c c2">" 당신은 <a>부르는 게 값</a>인 <ins><em>천재개발자</em></ins> 입니다... "</h1>
+    <div class="ball">
+        <img src="images/balloon2.png" alt="" class="balloon">
+        <h1 class="c c3">후우... 고독하군.</h1>
+    </div>
+    <h1 class="c c4">" 당신이 밟아온 <em>발자취</em> 는 이렇습니다..."</h1>
+    <div class="c c5" style="width: 300px;"></div>
+    </div>
+    </div>
+
+    <script>
+
+        var word = document.getElementsByClassName('c');
+        var di = document.getElementsByClassName('c5')[0];
+        var num = 0;
+
+
+        function fadeIn(num) {
+
+
+            var id = setInterval(function () {
+
+                if(num != 5){
+
+                    word[num].style.transitionDuration = "1s";
+                    word[num].style.opacity = "1";
+                console.log("인터벌" + num);
+                
+                if (num == 2) {
+                    var ball = document.getElementsByClassName('balloon')[0];
+                    ball.style.display = "block";
+                }
+                
+                if (num != 2) {
+                    setTimeout(function () {
+                        console.log(num + " " + word[num - 1]);
+                        word[(num - 1)].style.transitionDuration = "1s";
+                        word[(num - 1)].style.opacity = "0";
+                    }, 1000);
+                }
+                
+                num++;
+            }
+                
+            if (num == 5) {
+                clearInterval(id);
+                var num2 = 3;
+                var idd = setInterval(function () {
+                        di.style.opacity='1';
+                        di.innerHTML = "* "+num2+" *";
+                        if(num2==2){
+                            di.style.fontSize = '70px';
+                        }
+                        if(num2==1){
+                            di.style.fontSize = '90px';
+                            di.style.color = 'red';
+                        }
+                        
+                        if (num2 == 0) {
+                            location.href='roadmap_1.html';
+                            clearInterval(idd);
+                        }
+                        --num2;
+                    }, 1000);
+                }
+            }, 2000);
+
+
+
+        };
+        fadeIn(num);
+    </script>
+</body>
+
+</html>

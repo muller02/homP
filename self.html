@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>self</title>
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        h1 {
+            position: absolute;
+            text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+        }
+
+        ul {
+            position: absolute;
+            font-size: 25px;
+            top: 250px;
+            left: 550px;
+            padding-left: 0px;
+        }
+
+        ul li {
+            margin-left: 30px;
+            padding: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+        }
+
+        .bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/sakura.gif');
+            background-repeat: none;
+            background-size: cover;
+            opacity: .8;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="bg"></div>
+
+        <div class="container">
+
+            <div class="card">
+                <div class="face front">
+                    <img src="images/character.png" alt="내사진" id="me"
+                        style=" width: 443px; height: 640px; border-radius: 20px;">
+                </div>
+                <div class="face back">
+                    <img src="images/mine.png" alt="" style="width: 443px; height: 640px; border-radius: 20px;">
+                </div>
+            </div>
+
+            <img src="images/pick11.png" alt="커서" id="cursor">
+        </div>
+        <h1 id="remind">대충 그렇군...!</h1>
+        <img id="okok" src="images/balloon2.png" alt="말풍선">
+
+        <h1 style="top: 50px; left: 550px;">" 당신의 이름은... "</h1>
+        <h1 style="top: 140px; left: 750px; font-size: 40px;" id="name"> * 백다진 * </h1>
+        <div>
+            <ul>
+                <li>1993년 04월 20일생</li>
+                <li>수원 백씨</li>
+                <li>2녀 중 차녀</li>
+                <li>서울시 서대문구민</li>
+                <li>제천여자고등학교 졸업</li>
+                <li>강릉원주대 무역학과 전공</li>
+                <li style="margin-top: 50px; font-size: 30px;">KH정보교육원~</li>
+            </ul>
+
+            <h2 id="new"> &#60;NEW!&#62;</h2>
+        </div>
+        <div>
+
+            <img class="icon icon1" src="images/insta.png" alt="인스타" style="left: 700px;">
+            <img class="icon icon2" src="images/phone.png" alt="폰" style="left: 800px;">
+            <img id="toMain" src="images/back.png" alt="버튼" onclick="clickBack();">
+        </div>
+    </div>
+
+    <script>
+        function clickBack() {
+            location.href = "main.html";
+
+        }
+    </script>
+</body>
+
+</html>

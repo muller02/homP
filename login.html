@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <style>
+        .wrapper {
+            position: absolute;
+            top: 0px;
+            text-shadow: 1px 1px 0px white, 2px 2px 2px black;
+            font-weight: bold;
+            text-align: center;
+            transition-duration: 1s;
+        }
+
+        div>img {
+            position: absolute;
+            width: 1200px;
+            height: 800px;
+            opacity: .8;
+            transition-duration: 2s;
+        }
+
+        .field {
+            position: absolute;
+            top: 300px;
+            left: 277px;
+            width: 650px;
+            height: 400px;
+            background-color: rgba(255, 255, 255, 0.37);
+            box-shadow: 2px 2px 0px white, -2px -2px 0px white, 4px 4px 0px black, -4px -4px 0px black;
+        }
+
+        .field2 {
+            display: none;
+
+        }
+
+        .form {
+            position: relative;
+            ;
+            width: 700px;
+            height: 400px;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        #leftTap,
+        #rightTap {
+            display: inline-block;
+            margin-top: 75px;
+            font-size: 40px;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.219);
+            box-shadow: 1px 1px 0px white, -1px -1px 0px white, 3px 3px 0px black, -3px -3px 0px black;
+            width: 300px;
+            height: 70px;
+            cursor: pointer;
+        }
+
+        .form2 {
+            display: block;
+            top: 50px;
+            width: 400px;
+            height: 300px;
+            font-size: 30px;
+            text-align: left;
+            margin-left: 40px;
+            float: left;
+        }
+
+        .di2 {
+            display: inline-block;
+            width: 200px;
+            height: 400px;
+        }
+
+        #joinId,
+        #nick,
+        #joinPwd,
+        #checkPwd {
+            margin: 10px 10px;
+            width: 200px;
+            height: 35px;
+            font-size: 25px;
+        }
+
+        #id,
+        #pwd {
+            font-family: 'NeoDunggeunmo';
+            width: 280px;
+            height: 60px;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        #id {
+            margin-top: 70px;
+            margin-bottom: 30px;
+        }
+
+        .pwd {
+            margin-left: -40px;
+        }
+
+        .login,
+        .skip,
+        .join {
+            display: inline-block;
+            margin-top: 70px;
+            width: 300px;
+            height: 60px;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.219);
+            box-shadow: 1px 1px 0px white, -1px -1px 0px white, 3px 3px 0px black, -3px -3px 0px black;
+            cursor: pointer;
+        }
+
+        .skip {
+            margin-right: 40px;
+        }
+
+        .join {
+            margin-top: 30px;
+            margin-left: 130px;
+        }
+
+        .checkId {
+            display: inline-block;
+            width: 150px;
+            height: 40px;
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+            margin-top: 63px;
+            background-color: rgba(255, 255, 255, 0.219);
+            box-shadow: 1px 1px 0px white, -1px -1px 0px white, 3px 3px 0px black, -3px -3px 0px black;
+            cursor: pointer;
+        }
+
+        .checkP {
+            margin-top: 150px;
+            font-size: 25px;
+            color: red;
+            animation: blink 1s steps(1) infinite;
+            -webkit-animation: blink 1s steps(1) infinite;
+            text-shadow: none;
+            display: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            opacity: 0;
+        }
+        .info{
+            border-radius: 20px;
+            display: block;
+            float: both;
+            width: 400px;
+            height: 50px;
+            background-color:rgba(255, 255, 255, 0.452);
+            margin-top: 80px;
+            margin-left: 400px;
+            padding-top: 20px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div><img src="images/window.gif" alt="" id="gif"></div>
+
+    
+        <h1 id="loading" style="position: absolute; font-size: 80px; top: 280px; left: 350px; display: none;">접속중입니다...</h1>
+
+    <div class="wrapper">
+
+        <div class="info"></div>
+
+
+        <input type="button" value="로그인" id="leftTap">
+        <input type="button" value="회원가입" id="rightTap">
+
+
+
+        <div class="field field1">
+            <form action="" class="form form1">
+                <label for="id" class="id">아이디 : </label>
+                <input type="text" id="id" placeholder="test" autofocus>
+                <br>
+                <label for="pwd" class="pwd">비밀번호 : </label>
+                <input type="password" id="pwd" placeholder="test1">
+                <br>
+                <input type="button" value="로그인" class="login" onclick="login();">
+                <input type="button" value="시작" class="skip" onclick="toIndex();">
+            </form>
+        </div>
+
+        <div class="field field2">
+            <form action="" class="form form2">
+                <label for="joinId" class="joinId">&nbsp;아이디 :&nbsp;</label>
+                <input type="text" id="joinId" autofocus>
+                <br>
+                <label for="nick" class="nick">&nbsp;닉네임 :&nbsp;</label>
+                <input type="text" id="nick">
+                <br>
+                <label for="joinPwd" class="joinPwd">비밀번호 : </label>
+                <input type="password" id="joinPwd">
+                <br>
+                <label for="checkPwd" class="checkPwd">비번확인 : </label>
+                <input type="password" id="checkPwd">
+                <br>
+                <input type="button" value="회원가입" class="join" onclick="join();">
+            </form>
+
+            <div class="di2">
+                <input type="button" value="중복확인" class="checkId" onclick="checkId();">
+                <div class="checkP">*비번틀림*</div>
+            </div>
+        </div>
+
+        <h1 style="position: absolute; top: 730px; left: 1000px; opacity: .8; cursor: pointer;" onclick="toMain();">
+            메뉴로가기</h1>
+
+        <img src="images/star1.png" alt="" class="star" style="top: 100px; left: 100px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 200px; left: 200px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 50px; left: 1000px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 350px; left: 1100px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 130px; left: 600px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 550px; left: 700px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 600px; left: 148px;">
+        <img src="images/star1.png" alt="" class="star" style="top: 750px; left: 900px;">
+
+    </div>
+
+    <script>
+        function login() {
+            var $id = $('#id');
+            var $pwd = $('#pwd');
+
+            var playerList = JSON.parse(localStorage.getItem("playerList"));
+
+            var check1 =false;
+            var check2 =false;
+            for (var i = 0; i < playerList.length; i++) {
+
+                if (($id.val() == playerList[i].id) && ($pwd.val() == playerList[i].pwd)) {
+                    console.log(info.innerHTML);
+                    info.innerHTML = '* 로그인 성공 *';
+                    $('.wrapper').css('opacity', '0');
+                    $('#loading').css('display', 'block');
+                    setTimeout(function () {
+                        location.href = 'index.html';
+                    }, 2000);
+                    return;
+                }
+
+                if ($id.val() == playerList[i].id) 
+                    check1 = true;
+
+                if ($pwd.val() == playerList[i].pwd) 
+                    check2 = true;
+            }
+            info.innerHTML = '* 로그인 오류 *';
+
+        }
+        function toMain() {
+            location.href = "main.html";
+        }
+        function toIndex() {
+            $('.wrapper').css('opacity', '0');
+            $('#loading').css('display', 'block');
+
+            setTimeout(function () {
+                location.href = 'index.html';
+            }, 2000);
+        }
+
+        $('#rightTap').click(function (e) {
+            $('.field2').css('display', 'block');
+            $('.field1').css('display', 'none');
+        });
+        $('#leftTap').click(function (e) {
+            $('.field1').css('display', 'block');
+            $('.field2').css('display', 'none');
+        });
+
+        var info = document.getElementsByClassName('info')[0];
+
+        (function(){
+            info.innerHTML = '* * *';
+        })();
+
+        (function () {
+
+            var bg = document.getElementById('gif');
+            var star = document.querySelectorAll('.star');
+            var num = 1;
+
+            setInterval(function () {
+                if (num % 2 == 1) {
+                    bg.style.opacity = '.5';
+                    for (var i = 0; i < star.length; i++) {
+                        star[i].style.opacity = '1';
+                    }
+                }
+                else {
+                    bg.style.opacity = '.8';
+                    for (var i = 0; i < star.length; i++) {
+                        star[i].style.opacity = '0';
+                    }
+                }
+                num++;
+            }, 3000);
+        })();
+
+        var bool2 = false;
+        //즉석에서 비번확인
+        $('#checkPwd').focusout(function () {
+
+            console.log($('#joinPwd').val());
+            console.log($('#checkPwd').val());
+
+            if ($('#checkPwd').val() != $('#joinPwd').val()) {
+                bool2 = false;
+                document.getElementsByClassName('checkP')[0].style.display = 'block';
+            }
+            else {
+                bool2 = true;
+                document.getElementsByClassName('checkP')[0].style.display = 'none';
+            }
+
+        });
+        $('#joinPwd').focusout(function () {
+
+            console.log($('#joinPwd').val());
+            console.log($('#checkPwd').val());
+
+            if ($('#checkPwd').val() != null) {
+                bool2 = false;
+                document.getElementsByClassName('checkP')[0].style.display = 'block';
+            }
+            if ($('#checkPwd').val() == $('#joinPwd').val()) {
+                bool2 = true;
+                document.getElementsByClassName('checkP')[0].style.display = 'none';
+            }
+
+        });
+
+        function checkId() {
+
+            var $id = $('#joinId');
+            console.log($id);
+
+            if($id.val() == "")
+            info.innerHTML = '* 아이디 공란 *';
+
+            //불러오기
+            var playerList = JSON.parse(localStorage.getItem("playerList"));
+            for (var i = 0; i < playerList.length; i++) {
+                console.log($id.val());
+                console.log(playerList[i].id);
+                if ($id.val() == playerList[i].id) {
+                    info.innerHTML = '* 아이디 중복 *';
+                    return false;
+                }
+            }
+            info.innerHTML = '* 아이디 사용가능 *';
+            return true;
+        };
+
+
+        function join() {
+            var $key1 = $('#joinId');
+            var $value1 = $('#nick');
+            var $value2 = $('#joinPwd');
+            var $value3 = $('#checkPwd');
+
+            if ($key1.val() == '' || $value1.val() == '' || $value2.val() == '' || $value3.val() == '') {
+                return;
+            }
+
+            //유효성 검사
+
+            //아이디 중복확인 불린
+            var bool1 = checkId();
+            if (!bool1) {
+                return;
+            }
+
+            //비밀번호 확인 불린
+            if (!bool2) {
+                return;
+            }
+
+            //저장
+            // localStorage.setPlayer($key1.val(), $value1.val(), $value2.val());
+            setPlayer($key1.val(), $value1.val(), $value2.val());
+
+            info.innerHTML = '* 가입 완료*';
+
+            //초기화
+            $key1.val('');
+            $value1.val('');
+            $value2.val('');
+            $value3.val('');
+        }
+
+
+        function setPlayer(id, nick, pwd) {
+            //가져온 정보 객체화
+            var player = { id: id, nick: nick, pwd: pwd };
+            console.log(id + " " + nick + " " + pwd);
+
+            //localStorage 안의 playerList키값을 통해 value 출력
+            var playerList = JSON.parse(localStorage.getItem("playerList"));
+
+            //기존의 정보 뒤에 새로운 객체 추가
+            playerList.push(player);
+            //새로운 객체를 추가한 배열을 변수화 하여
+            var jsonP = JSON.stringify(playerList);
+            //실제 localStorage에 덮어씌움
+            localStorage.setItem("playerList", jsonP);
+
+        }
+
+        //실행 시 localstorage에 리스트 생성 (test용)
+        (function () {
+            var playerList = [{ id: "test", nick: "test", pwd: "test1" }];
+            if (localStorage.getItem("playerList") == null) {
+                var jsons = JSON.stringify(playerList);
+                localStorage.setItem("playerList", jsons);
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
